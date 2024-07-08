@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            /* background-color: red; */
+            background-image: url(bg.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-clip: border-box;
+            background-size: cover;
+
+        }
+        .main{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 400px;
+            height: 440px;
+            backdrop-filter: blur(20px);
+            background-color: transparent;
+            border: 2px solid rgba(255, 255, 255,.5);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: .5s ease-in-out;
+
+           
+        }
+        .close{
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 10px;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            height: 10px;
+            width: 10px;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             cursor: pointer;
+        }
+        .login-page{
+            width: 300px;
+            /* position: relative; */
+        }
+        .login-page h2{
+            text-align: center;
+            font-size: 30px;
+            color: white;
+        }
+        .login-page input[type=text],input[type=password],input[type=email]{
+            width: 100%;
+            outline: none;
+            border: none;
+            border-bottom: 2px solid black;
+            border-radius: 1px;
+            margin-block: 10px;
+            background-color: transparent;
+        }
+        .login-page input::placeholder{
+            color: rgb(255, 0, 0);
+            font-size: 20px;
+        }
+        .login-page input[type=submit]{
+            height: 30px;
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .login-page .user,.password,.check{
+            margin-block: 15px;
+        }
+        .check{
+            display: flex;
+            justify-content: space-between;
+            
+        }
+        .check a, .regist a{
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .regist p{
+            display: inline;
+            text-align: center;
+            /* margin-top: 100px; */
+            margin-inline: 20px;
+
+        }
+        .register{
+            margin-top: 10px;
+            position: absolute;
+            transform: translate(400px);
+
+        }
+        
+        .register label{
+            display: flex;
+        }
+        .login.active{
+            transform: translate(-400px);
+        }
+        .register.active{
+            transform: translate(0);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="main active" id="main">
+        <div class="close">X</div>
+        <div class="login-page login">
+            <h2>Login</h2> 
+            <div class="user"> 
+                <label for="username">Username : </label>
+                <input type="text" placeholder="" id="username">
+            </div>
+            <div class="password"> 
+                <label for="password">Password :</label>
+                <input type="password" placeholder="" id="password">               
+            </div>
+            <div class="check">
+                <div> 
+                    <input type="checkbox" value="Remember me" id="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+                <a href="#">Forgot Password ?</a>
+            </div>  
+            <div class="submit">
+                <input type="submit" value="Submit">
+            </div>   
+            <div class="regist">
+                <p>Don't have an account ? <a href="#" id="registration">Register</a> </p>
+                
+            </div>        
+        </div>
+
+        <div class="login-page register">
+            
+            <h2>Register</h2> 
+            <div class="user"> 
+                <label for="username">Username : </label>
+                <input type="text" placeholder="" id="username">
+            </div>
+            <div class="email"> 
+                <label for="email">Email : </label>
+                <input type="email" placeholder="" id="email">
+            </div>
+            <div class="password"> 
+                <label for="password">Password :</label>
+                <input type="password" placeholder="" id="password">               
+            </div>
+             
+            <div class="submit">
+                <input type="submit" value="Submit">
+            </div>   
+            <div class="regist">
+                <p>Already have an account ? <a href="#" id="logging-in">Login</a> </p>
+                
+            </div>        
+        </div>
+
+
+    </div>
+    <script>
+        let main = document.getElementById("main");
+        let ab = document.querySelector('.login');
+        let xy = document.querySelector('.register')
+        let register = document.getElementById("registration");
+        let login = document.getElementById("logging-in");
+        register.addEventListener('click', function(){
+            ab.classList.add('active');
+        })
+        login.addEventListener('click', function(){
+            ab.classList.remove('active');
+        })
+        register.addEventListener('click', function(){
+            xy.classList.add('active')
+        })
+        login.addEventListener('click', function(){
+            xy.classList.remove('active')
+        })
+    </script>
+    
+</body>
+</html>
